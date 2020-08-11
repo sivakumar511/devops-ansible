@@ -1,21 +1,12 @@
 ---
 - hosts: all
 
-  become: yes
-  become_method: sudo
-  remote_user: ubuntu
-
   tasks:
-  - name: Update and upgrade apt packages
-    apt:
-      upgrade: yes
-      update_cache: yes
-      cache_valid_time: 86400 #One day
-
-  - name: install JDK 11
-    apt:
-      name: openjdk-11-jdk
-      state: present
+  - name: Set JAVA_HOME 
+    lineinfile:
+      dest: /etc/environment
+      regexp: '^JAVA_HOME'
+      line: 'JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk'
 
   - name: add tomcat group
     group:
