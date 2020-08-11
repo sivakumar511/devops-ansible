@@ -52,7 +52,7 @@
 
   - name: Copy Tomcat service from git repo
     get_url:
-      url: https://github.com/sivakumar511/devops-ansible/blob/master/tomcat.service
+      url: https://raw.githubusercontent.com/sivakumar511/devops-ansible/master/tomcat.service
       dest: /etc/systemd/system/
       mode: 0755
 
