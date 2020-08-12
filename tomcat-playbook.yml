@@ -6,7 +6,7 @@
     lineinfile:
       dest: /etc/environment
       regexp: '^JAVA_HOME'
-      line: 'JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk'
+      line: 'JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64'
 
   - name: add tomcat group
     group:
@@ -17,7 +17,7 @@
       name: tomcat
       group: tomcat
       home: /user/share/tomcat
-      createhome: no
+      create_home: yes
 
   - name: create /opt/tomcat directory
     file:
